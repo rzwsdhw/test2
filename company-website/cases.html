@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成功案例 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+</head>
+<body class="page-cases">
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品服务</a>
+                <a href="solutions.html">解决方案</a>
+                <a href="cases.html" class="active">成功案例</a>
+                <a href="about.html">关于我们</a>
+            </nav>
+            <div class="header-search">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="headerSearchInput" placeholder="我要找方案" autocomplete="off">
+                </div>
+                <div class="search-results" id="searchResults">
+                    <div class="search-results-content">
+                        <div class="search-section">
+                            <h4>客户案例</h4>
+                            <div id="caseResults"></div>
+                        </div>
+                        <div class="search-section">
+                            <h4>解决方案</h4>
+                            <div id="solutionResults"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary">免费试用</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="page-hero">
+        <div class="page-hero-bg">
+            <!-- 里程碑时间线背景 -->
+            <div class="milestone-bg">
+                <div class="timeline-line"></div>
+                <div class="milestone-dot" style="left: 10%; top: 30%;">
+                    <span class="year">2019</span>
+                </div>
+                <div class="milestone-dot" style="left: 30%; top: 60%;">
+                    <span class="year">2020</span>
+                </div>
+                <div class="milestone-dot" style="left: 50%; top: 25%;">
+                    <span class="year">2021</span>
+                </div>
+                <div class="milestone-dot" style="left: 70%; top: 55%;">
+                    <span class="year">2022</span>
+                </div>
+                <div class="milestone-dot" style="left: 90%; top: 35%;">
+                    <span class="year">2023</span>
+                </div>
+            </div>
+            <!-- 成就徽章 -->
+            <div class="achievement-badges">
+                <div class="badge-item">
+                    <span class="badge-icon">🏆</span>
+                    <span class="badge-text">500+ 客户</span>
+                </div>
+                <div class="badge-item">
+                    <span class="badge-icon">⭐</span>
+                    <span class="badge-text">99.9% 满意度</span>
+                </div>
+                <div class="badge-item">
+                    <span class="badge-icon">🚀</span>
+                    <span class="badge-text">30+ 行业</span>
+                </div>
+                <div class="badge-item">
+                    <span class="badge-icon">💎</span>
+                    <span class="badge-text">10年 经验</span>
+                </div>
+            </div>
+            <!-- 进度环装饰 -->
+            <div class="progress-rings">
+                <div class="ring" style="--size: 200px; --delay: 0s;"></div>
+                <div class="ring" style="--size: 300px; --delay: 0.5s;"></div>
+                <div class="ring" style="--size: 400px; --delay: 1s;"></div>
+            </div>
+            <!-- 粒子上升效果 -->
+            <div class="rising-particles">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">Success Stories</div>
+                <h1>客户<span class="highlight">成功案例</span></h1>
+                <p>与行业领先企业携手，用技术驱动业务增长，共创数字化未来</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例筛选 -->
+    <section class="case-filter-section">
+        <div class="container">
+            <div class="case-filters">
+                <button class="filter-btn active" data-filter="all">全部案例</button>
+                <button class="filter-btn" data-filter="government">政务</button>
+                <button class="filter-btn" data-filter="finance">金融</button>
+                <button class="filter-btn" data-filter="healthcare">医疗</button>
+                <button class="filter-btn" data-filter="education">教育</button>
+                <button class="filter-btn" data-filter="manufacturing">制造</button>
+                <button class="filter-btn" data-filter="retail">零售</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选案例 -->
+    <section class="featured-cases">
+        <div class="container">
+            <h2 class="section-title">精选案例</h2>
+
+            <div class="featured-case" data-category="government">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&h=400&fit=crop" alt="政务云案例">
+                    <div class="case-image-overlay"></div>
+                </div>
+                <div class="case-info">
+                    <div class="case-category-tag">政务</div>
+                    <h3>某省级一体化政务云平台</h3>
+                    <p class="case-summary">为某省打造统一的数字政务基础设施，整合全省40余个委办局、200多个业务系统，实现"一网通办"和"最多跑一次"改革目标。</p>
+
+                    <div class="case-challenges">
+                        <h4>业务挑战</h4>
+                        <ul>
+                            <li>各部门信息系统孤岛林立，数据难以共享</li>
+                            <li>传统IT基础设施维护成本高、扩展性差</li>
+                            <li>群众办事需要跑多个部门，效率低下</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-solution">
+                        <h4>解决方案</h4>
+                        <ul>
+                            <li>建设统一的政务云平台，实现计算资源集中管理</li>
+                            <li>搭建数据共享交换平台，打通部门间数据壁垒</li>
+                            <li>开发一体化在线政务服务平台</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-results">
+                        <div class="result-item">
+                            <span class="result-value">40+</span>
+                            <span class="result-label">委办局上云</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">200+</span>
+                            <span class="result-label">业务系统</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">60%</span>
+                            <span class="result-label">效率提升</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">40%</span>
+                            <span class="result-label">成本降低</span>
+                        </div>
+                    </div>
+
+                    <a href="case-government.html" class="btn btn-primary">查看详情</a>
+                </div>
+            </div>
+
+            <div class="featured-case reverse" data-category="finance">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop" alt="金融云案例">
+                    <div class="case-image-overlay"></div>
+                </div>
+                <div class="case-info">
+                    <div class="case-category-tag">金融</div>
+                    <h3>某城商行核心系统云原生改造</h3>
+                    <p class="case-summary">帮助某城市商业银行完成核心银行系统的云原生架构升级，支撑日均千万级交易量，实现业务快速创新和弹性扩展。</p>
+
+                    <div class="case-challenges">
+                        <h4>业务挑战</h4>
+                        <ul>
+                            <li>核心系统运行10余年，架构老旧难以维护</li>
+                            <li>业务高峰期系统压力大，扩展周期长</li>
+                            <li>新业务上线周期长，难以快速响应市场</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-solution">
+                        <h4>解决方案</h4>
+                        <ul>
+                            <li>采用微服务架构重构核心系统</li>
+                            <li>部署容器云平台，实现弹性伸缩</li>
+                            <li>建立DevOps流水线，提升交付效率</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-results">
+                        <div class="result-item">
+                            <span class="result-value">5x</span>
+                            <span class="result-label">性能提升</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">30s</span>
+                            <span class="result-label">弹性扩容</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">40%</span>
+                            <span class="result-label">成本降低</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">10x</span>
+                            <span class="result-label">发布频率</span>
+                        </div>
+                    </div>
+
+                    <a href="case-bank.html" class="btn btn-primary">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 更多案例 -->
+    <section class="more-cases">
+        <div class="container">
+            <h2 class="section-title">更多案例</h2>
+
+            <div class="cases-masonry">
+                <div class="case-card" data-category="healthcare">
+                    <div class="case-card-image">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=200&fit=crop" alt="智慧医院">
+                    </div>
+                    <div class="case-card-content">
+                        <div class="case-card-tag">医疗</div>
+                        <h4>某三甲医院智慧医院</h4>
+                        <p>建设互联网医院平台和医疗影像云，年服务患者超100万人次。</p>
+                        <div class="case-card-stats">
+                            <span>100万+ 患者</span>
+                            <span>30% 效率提升</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="education">
+                    <div class="case-card-image" style="height: 180px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=200&fit=crop" alt="教育云" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <div class="case-card-content">
+                        <div class="case-card-tag">教育</div>
+                        <h4>某省教育厅教育云平台</h4>
+                        <p>覆盖全省2000+所学校，100万+师生，促进教育公平。</p>
+                        <div class="case-card-stats">
+                            <span>2000+ 学校</span>
+                            <span>100万+ 用户</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="manufacturing">
+                    <div class="case-card-image">
+                        <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=400&h=200&fit=crop" alt="工业互联网">
+                    </div>
+                    <div class="case-card-content">
+                        <div class="case-card-tag">制造</div>
+                        <h4>某汽车集团工业互联网平台</h4>
+                        <p>连接10万+台设备，实现生产过程可视化和预测性维护。</p>
+                        <div class="case-card-stats">
+                            <span>10万+ 设备</span>
+                            <span>25% 产能提升</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="finance">
+                    <div class="case-card-image">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=200&fit=crop" alt="智能理赔">
+                    </div>
+                    <div class="case-card-content">
+                        <div class="case-card-tag">金融</div>
+                        <h4>某保险公司智能理赔系统</h4>
+                        <p>基于AI技术打造智能理赔平台，理赔效率提升80%。</p>
+                        <div class="case-card-stats">
+                            <span>80% 效率提升</span>
+                            <span>95% 准确率</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="retail">
+                    <div class="case-card-image">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=200&fit=crop" alt="零售数字化">
+                    </div>
+                    <div class="case-card-content">
+                        <div class="case-card-tag">零售</div>
+                        <h4>某连锁零售企业数字化转型</h4>
+                        <p>全渠道中台建设，线上线下融合，销售增长30%。</p>
+                        <div class="case-card-stats">
+                            <span>30% 销售增长</span>
+                            <span>50% 库存优化</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="government">
+                    <div class="case-card-image">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=200&fit=crop" alt="智慧城市">
+                    </div>
+                    <div class="case-card-content">
+                        <div class="case-card-tag">政务</div>
+                        <h4>某市智慧城市大脑</h4>
+                        <p>整合城市数据资源，实现城市运行态势感知和智能决策。</p>
+                        <div class="case-card-stats">
+                            <span>20+ 部门</span>
+                            <span>50% 事件响应</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="manufacturing">
+                    <div class="case-card-image">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=200&fit=crop" alt="AI质检">
+                    </div>
+                    <div class="case-card-content">
+                        <div class="case-card-tag">制造</div>
+                        <h4>某电子厂AI质检系统</h4>
+                        <p>视觉缺陷检测替代人工，检测准确率提升至99.9%。</p>
+                        <div class="case-card-stats">
+                            <span>99.9% 准确率</span>
+                            <span>3x 效率提升</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="healthcare">
+                    <div class="case-card-image">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=200&fit=crop" alt="医药研发">
+                    </div>
+                    <div class="case-card-content">
+                        <div class="case-card-tag">医疗</div>
+                        <h4>某医药企业研发云平台</h4>
+                        <p>高性能计算支持新药研发，计算效率提升10倍。</p>
+                        <div class="case-card-stats">
+                            <span>10x 计算效率</span>
+                            <span>60% 成本降低</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="education">
+                    <div class="case-card-image" style="height: 180px; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&h=200&fit=crop" alt="智慧校园" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <div class="case-card-content">
+                        <div class="case-card-tag">教育</div>
+                        <h4>某高校智慧校园</h4>
+                        <p>统一身份认证、智能教室、校园安防一体化平台。</p>
+                        <div class="case-card-stats">
+                            <span>5万+ 师生</span>
+                            <span>100+ 应用</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">客户评价</h2>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">某某科技帮助我们实现了核心系统的云原生改造，不仅提升了系统性能，更让我们的业务创新速度大大提升。他们的专业团队在整个过程中提供了极大的支持。</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">张</div>
+                        <div class="author-info">
+                            <span class="author-name">张总</span>
+                            <span class="author-title">某城商行 CTO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">通过智云的政务云解决方案，我们成功整合了全省的政务系统，老百姓办事方便多了。系统上线以来运行稳定，获得了各部门的一致好评。</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">李</div>
+                        <div class="author-info">
+                            <span class="author-name">李处长</span>
+                            <span class="author-title">某省大数据局</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">AI质检系统的引入彻底改变了我们的生产模式，检测效率和准确率都有质的飞跃。智云的技术团队深入理解我们的业务场景，提供了非常贴合的解决方案。</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">王</div>
+                        <div class="author-info">
+                            <span class="author-name">王总监</span>
+                            <span class="author-title">某电子厂 技术总监</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">☁</span>
+                        <span class="logo-text">某某科技</span>
+                    </div>
+                    <p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p>
+                    <div class="contact-info">
+                        <p>📞 xxx-xxx-xxxx</p>
+                        <p>✉ xxxxxxxx@xxxx.xxx</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="products.html#compute">云计算</a></li>
+                        <li><a href="products.html#storage">数据存储</a></li>
+                        <li><a href="products.html#ai">人工智能</a></li>
+                        <li><a href="products.html#security">安全服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="solutions.html#government">政务云</a></li>
+                        <li><a href="solutions.html#finance">金融云</a></li>
+                        <li><a href="solutions.html#healthcare">医疗云</a></li>
+                        <li><a href="solutions.html#education">教育云</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>支持与资源</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">开发文档</a></li>
+                        <li><a href="#">API参考</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">公司介绍</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 智能助手浮窗 -->
+    <div class="ai-chat-modal" id="aiChatModal">
+        <div class="ai-chat-overlay" id="aiChatOverlay"></div>
+        <div class="ai-chat-container">
+            <div class="ai-chat-header">
+                <div class="ai-chat-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                        <line x1="15" y1="9" x2="15.01" y2="9"/>
+                    </svg>
+                </div>
+                <div class="ai-chat-title">
+                    <h4>智能助手</h4>
+                    <span class="ai-chat-status">在线</span>
+                </div>
+                <button class="ai-chat-close" id="aiChatClose">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="ai-chat-body" id="aiChatBody">
+                <div class="ai-chat-message ai-chat-welcome">
+                    <div class="ai-chat-avatar-small">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                        </svg>
+                    </div>
+                    <div class="ai-chat-bubble ai-chat-bubble-bot">
+                        <p>👋 您好！我是某某科技智能助手。</p>
+                        <p>我可以帮您：</p>
+                        <ul class="ai-chat-suggestions">
+                            <li data-query="政府案例">🏛️ 了解政府行业案例</li>
+                            <li data-query="金融案例">🏦 了解金融行业案例</li>
+                            <li data-query="医疗案例">🏥 了解医疗行业案例</li>
+                            <li data-query="解决方案">💡 查看解决方案</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-chat-footer">
+                <div class="ai-chat-input-wrapper">
+                    <input type="text" class="ai-chat-input" id="aiChatInput" placeholder="输入您的问题，如：政府、金融">
+                    <button class="ai-chat-send" id="aiChatSend">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="ai-chat-quick-actions">
+                    <button class="quick-action-btn" data-query="产品咨询">产品咨询</button>
+                    <button class="quick-action-btn" data-query="解决方案">解决方案</button>
+                    <button class="quick-action-btn" data-query="价格报价">价格报价</button>
+                    <button class="quick-action-btn" data-query="技术支持">技术支持</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // 案例筛选功能
+        document.querySelectorAll('.case-filters .filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+
+                // 更新按钮状态
+                document.querySelectorAll('.case-filters .filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // 筛选案例
+                document.querySelectorAll('.featured-case, .case-card').forEach(card => {
+                    const category = card.getAttribute('data-category');
+
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = '';
+                        card.style.animation = 'fadeIn 0.5s ease-out';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "company-website",
+  "version": "1.0.0",
+  "description": "智云科技企业官网 - 基于Vite的现代化前端项目",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview"
+  },
+  "keywords": [
+    "website",
+    "company",
+    "cloud",
+    "vite"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

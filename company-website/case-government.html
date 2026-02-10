@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例详情：某省级一体化政务云平台 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+    <style>
+        .case-detail-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .case-detail-hero .page-tag {
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .case-detail-hero h1 .highlight {
+            background: linear-gradient(135deg, #ffd700, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .case-overview {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .case-description h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        .case-description p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .case-meta-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            position: sticky;
+            top: 100px;
+        }
+        .meta-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+        .meta-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .meta-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .case-metrics-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .metric-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .metric-card .number {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .metric-card .label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .case-content-section {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .content-block {
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
+        .content-block h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .content-block h3 .icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        .content-block ul {
+            list-style: none;
+        }
+        .content-block li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 15px;
+            color: var(--text-secondary);
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .content-block li:last-child {
+            border-bottom: none;
+        }
+        .content-block.challenges li::before {
+            content: '!';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: #e94560;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .content-block.solutions li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: #11998e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .case-architecture {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        .architecture-image {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            margin-top: 48px;
+            box-shadow: var(--shadow-md);
+        }
+        .arch-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .arch-step {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+            background: var(--bg-light);
+            padding: 20px 24px;
+            border-radius: var(--radius-md);
+        }
+        .step-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+        .step-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .arch-arrow {
+            width: 48px;
+            text-align: center;
+            font-size: 24px;
+            color: #667eea;
+        }
+        .related-cases {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+        .case-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-case {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all 0.3s;
+            max-width: 45%;
+        }
+        .nav-case:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        .nav-case:hover .nav-label,
+        .nav-case:hover .nav-title {
+            color: white;
+        }
+        .nav-case.prev {
+            flex-direction: row;
+        }
+        .nav-case.next {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        .nav-arrow {
+            font-size: 24px;
+        }
+        .nav-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .nav-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        @media (max-width: 1024px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-meta-card {
+                position: static;
+            }
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav-case {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品服务</a>
+                <a href="solutions.html">解决方案</a>
+                <a href="cases.html" class="active">成功案例</a>
+                <a href="about.html">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary">免费试用</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 案例详情头部 -->
+    <section class="page-hero case-detail-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">Government Case Study</div>
+                <h1>某省级一体化<br><span class="highlight">政务云平台</span></h1>
+                <p>打造统一的数字政务基础设施，实现"一网通办"和"最多跑一次"改革目标</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例概览 -->
+    <section class="case-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="case-description">
+                    <h2>项目背景</h2>
+                    <p>某省为深化"放管服"改革，推进政府数字化转型，决定建设全省统一的政务云平台。项目旨在整合各部门分散的IT基础设施，打破信息孤岛，实现数据共享和业务协同，为企业和群众提供高效便捷的政务服务。</p>
+                    <p>该项目覆盖全省40余个委办局，涉及200多个业务系统，是省内规模最大、复杂度最高的政务云项目之一。</p>
+                </div>
+                <div class="case-meta-card">
+                    <div class="meta-item">
+                        <div class="meta-label">客户行业</div>
+                        <div class="meta-value">数字政务</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">项目周期</div>
+                        <div class="meta-value">18个月</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">服务范围</div>
+                        <div class="meta-value">全省40+委办局</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">核心产品</div>
+                        <div class="meta-value">政务云、数据中台</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心指标 -->
+    <section class="case-metrics-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2>项目成效</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">用数据说话，见证数字化转型价值</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="number">40+</div>
+                    <div class="label">委办局上云</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">200+</div>
+                    <div class="label">业务系统迁移</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">60%</div>
+                    <div class="label">办事效率提升</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">40%</div>
+                    <div class="label">IT成本降低</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 挑战与方案 -->
+    <section class="case-content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-block challenges">
+                    <h3><span class="icon">⚠️</span>业务挑战</h3>
+                    <ul>
+                        <li>各部门信息系统孤岛林立，数据难以共享，群众办事需要重复提交材料</li>
+                        <li>传统IT基础设施维护成本高、扩展性差，难以支撑业务发展需求</li>
+                        <li>缺乏统一的安全防护体系，存在数据泄露风险</li>
+                        <li>业务系统迁移复杂，需要保障业务连续性</li>
+                    </ul>
+                </div>
+                <div class="content-block solutions">
+                    <h3><span class="icon">💡</span>解决方案</h3>
+                    <ul>
+                        <li>建设统一政务云平台，实现计算、存储、网络资源的集中管理和统一调度</li>
+                        <li>搭建数据共享交换平台，打通部门间数据壁垒，实现"一数一源"</li>
+                        <li>开发一体化在线政务服务平台，实现"一网通办"</li>
+                        <li>构建多层次安全防护体系，通过等保三级认证</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术架构 -->
+    <section class="case-architecture">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2>实施路径</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">分阶段有序推进，确保项目成功落地</p>
+            </div>
+            <div class="architecture-image">
+                <div class="arch-flow">
+                    <div class="arch-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>基础平台建设</h4>
+                            <p>建设统一的云基础设施，包括计算、存储、网络、安全等资源池</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>数据治理与共享</h4>
+                            <p>建立数据标准和规范，搭建数据共享交换平台，打通部门数据孤岛</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>业务系统迁移</h4>
+                            <p>分批次迁移业务系统上云，确保业务连续性和数据安全</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>服务优化提升</h4>
+                            <p>持续优化政务服务流程，推出更多便民利企的在线服务</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section class="case-content-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>客户评价</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; background: var(--bg-light); padding: 48px; border-radius: var(--radius-lg);">
+                <div style="font-size: 60px; color: var(--primary-color); opacity: 0.3; line-height: 1;">"</div>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-primary); margin: -20px 0 24px; position: relative; z-index: 1;">
+                    通过智云的政务云解决方案，我们成功整合了全省的政务系统，老百姓办事方便多了。以前办一件事要跑好几个部门，现在网上一次就能办好。系统上线以来运行稳定，获得了各部门的一致好评。
+                </p>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: 600;">李</div>
+                    <div>
+                        <div style="font-size: 16px; font-weight: 600; color: var(--text-primary);">李处长</div>
+                        <div style="font-size: 14px; color: var(--text-secondary);">某省大数据局 信息化处处长</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相关案例 -->
+    <section class="related-cases">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2>相关案例</h2>
+            </div>
+            <div class="case-nav">
+                <a href="cases.html" class="nav-case prev">
+                    <span class="nav-arrow">←</span>
+                    <div>
+                        <div class="nav-label">返回案例列表</div>
+                        <div class="nav-title">查看全部案例</div>
+                    </div>
+                </a>
+                <a href="case-bank.html" class="nav-case next">
+                    <span class="nav-arrow">→</span>
+                    <div>
+                        <div class="nav-label">下一个案例</div>
+                        <div class="nav-title">某城商行核心系统云化</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">☁</span>
+                        <span class="logo-text">某某科技</span>
+                    </div>
+                    <p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="products.html">云计算</a></li>
+                        <li><a href="products.html">数据存储</a></li>
+                        <li><a href="products.html">人工智能</a></li>
+                        <li><a href="products.html">安全服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="solution-government.html">政务云</a></li>
+                        <li><a href="solution-finance.html">金融云</a></li>
+                        <li><a href="solution-healthcare.html">医疗云</a></li>
+                        <li><a href="solution-education.html">教育云</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">公司介绍</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

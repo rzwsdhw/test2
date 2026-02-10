@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品服务 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+</head>
+<body class="page-products">
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html" class="active">产品服务</a>
+                <a href="solutions.html">解决方案</a>
+                <a href="cases.html">成功案例</a>
+                <a href="about.html">关于我们</a>
+            </nav>
+            <div class="header-search">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="headerSearchInput" placeholder="我要找方案" autocomplete="off">
+                </div>
+                <div class="search-results" id="searchResults">
+                    <div class="search-results-content">
+                        <div class="search-section">
+                            <h4>客户案例</h4>
+                            <div id="caseResults"></div>
+                        </div>
+                        <div class="search-section">
+                            <h4>解决方案</h4>
+                            <div id="solutionResults"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary">免费试用</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="page-hero">
+        <div class="page-hero-bg">
+            <!-- 电路板纹理 -->
+            <div class="circuit-pattern"></div>
+            <!-- 服务器机架线条 -->
+            <div class="server-racks"></div>
+            <!-- 数据流动粒子 -->
+            <div class="data-particles">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <!-- 节点连接 -->
+            <div class="network-nodes">
+                <div class="node node-1"></div>
+                <div class="node node-2"></div>
+                <div class="node node-3"></div>
+                <div class="node node-4"></div>
+                <div class="node node-5"></div>
+                <svg class="connections">
+                    <line x1="20%" y1="30%" x2="45%" y2="50%" />
+                    <line x1="45%" y1="50%" x2="70%" y2="35%" />
+                    <line x1="45%" y1="50%" x2="60%" y2="70%" />
+                    <line x1="70%" y1="35%" x2="85%" y2="55%" />
+                </svg>
+            </div>
+            <!-- 二进制代码雨 -->
+            <div class="binary-rain"></div>
+        </div>
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">Products & Services</div>
+                <h1>全栈云计算<span class="highlight">产品矩阵</span></h1>
+                <p>从基础设施到智能应用，提供企业数字化转型所需的全方位技术产品</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品分类导航 -->
+    <section class="product-nav">
+        <div class="container">
+            <div class="product-tabs">
+                <button class="product-tab active" data-category="compute">
+                    <span class="tab-icon">🖥</span>
+                    <span>云计算</span>
+                </button>
+                <button class="product-tab" data-category="storage">
+                    <span class="tab-icon">💾</span>
+                    <span>数据存储</span>
+                </button>
+                <button class="product-tab" data-category="ai">
+                    <span class="tab-icon">🤖</span>
+                    <span>人工智能</span>
+                </button>
+                <button class="product-tab" data-category="security">
+                    <span class="tab-icon">🔒</span>
+                    <span>安全服务</span>
+                </button>
+                <button class="product-tab" data-category="database">
+                    <span class="tab-icon">🗄</span>
+                    <span>数据库</span>
+                </button>
+                <button class="product-tab" data-category="middleware">
+                    <span class="tab-icon">⚙</span>
+                    <span>中间件</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品详情 -->
+    <section class="product-detail-section">
+        <div class="container">
+            <!-- 云计算 -->
+            <div class="product-category active" id="compute">
+                <div class="category-header">
+                    <h2>云计算服务</h2>
+                    <p>弹性、可靠、高性能的计算资源，满足各种业务场景需求</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card featured">
+                        <div class="product-badge">热门</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="弹性云服务器">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>弹性云服务器 ECS</h3>
+                        <p>秒级启动的虚拟服务器，支持多种实例规格，满足从Web服务到高性能计算的各类需求</p>
+                        <ul class="product-features">
+                            <li>支持100+种实例规格</li>
+                            <li>99.995%可用性保障</li>
+                            <li>分钟级弹性扩容</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=400&h=200&fit=crop" alt="容器服务">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>容器服务 CKS</h3>
+                        <p>基于Kubernetes的容器编排服务，简化容器化应用部署和管理</p>
+                        <ul class="product-features">
+                            <li>原生K8s兼容</li>
+                            <li>自动扩缩容</li>
+                            <li> DevOps流水线集成</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="专属云">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>专属云 DC</h3>
+                        <p>物理隔离的专属计算资源，满足金融、政务等合规要求</p>
+                        <ul class="product-features">
+                            <li>物理资源独享</li>
+                            <li>等保三级认证</li>
+                            <li>混合云无缝打通</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=200&fit=crop" alt="Serverless">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>Serverless 函数计算</h3>
+                        <p>事件驱动的无服务器计算，按需运行代码，无需管理服务器</p>
+                        <ul class="product-features">
+                            <li>毫秒级冷启动</li>
+                            <li>按需付费</li>
+                            <li>自动弹性伸缩</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=400&h=200&fit=crop" alt="裸金属服务器">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>裸金属服务器 BMS</h3>
+                        <p>物理机级别的性能，云服务器的灵活性，适用于高性能计算场景</p>
+                        <ul class="product-features">
+                            <li>无虚拟化开销</li>
+                            <li>GPU异构计算</li>
+                            <li>分钟级交付</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=200&fit=crop" alt="批量计算">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>批量计算 Batch</h3>
+                        <p>大规模并行计算服务，适用于渲染、仿真、基因分析等场景</p>
+                        <ul class="product-features">
+                            <li>十万级并发</li>
+                            <li>Spot实例降本</li>
+                            <li>作业调度优化</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 数据存储 -->
+            <div class="product-category" id="storage">
+                <div class="category-header">
+                    <h2>数据存储服务</h2>
+                    <p>安全、可靠、高性能的存储解决方案，保护您的数据资产</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card featured">
+                        <div class="product-badge">热门</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=200&fit=crop" alt="对象存储">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>对象存储 OSS</h3>
+                        <p>海量、安全、低成本的云存储服务，支持图片、视频、文档等各种类型数据</p>
+                        <ul class="product-features">
+                            <li>99.999999999%可靠性</li>
+                            <li>CDN加速分发</li>
+                            <li>图片处理与AI分析</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=200&fit=crop" alt="云硬盘">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>云硬盘 EVS</h3>
+                        <p>高可靠、高性能的块存储服务，为云服务器提供持久化存储</p>
+                        <ul class="product-features">
+                            <li>单盘最高32TB</li>
+                            <li>百万级IOPS</li>
+                            <li>秒级快照备份</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop" alt="文件存储">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>文件存储 NAS</h3>
+                        <p>托管的共享文件存储，支持NFS、SMB协议，适配企业应用</p>
+                        <ul class="product-features">
+                            <li>弹性扩容</li>
+                            <li>多客户端共享</li>
+                            <li>备份归档集成</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="高性能存储">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>高性能文件存储 HPFS</h3>
+                        <p>并行文件系统，适用于HPC、AI训练、视频渲染等高性能场景</p>
+                        <ul class="product-features">
+                            <li>TB级吞吐</li>
+                            <li>亚毫秒延迟</li>
+                            <li>POSIX兼容</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=200&fit=crop" alt="云备份">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>云备份 CBR</h3>
+                        <p>统一备份服务，支持云服务器、云硬盘、数据库的备份与恢复</p>
+                        <ul class="product-features">
+                            <li>增量备份</li>
+                            <li>跨区域复制</li>
+                            <li>即时恢复</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&h=200&fit=crop" alt="归档存储">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>归档存储 Archive</h3>
+                        <p>极低成本的长期数据归档存储，适合备份、合规、历史数据</p>
+                        <ul class="product-features">
+                            <li>成本降低80%</li>
+                            <li>WORM合规</li>
+                            <li>智能分层</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 人工智能 -->
+            <div class="product-category" id="ai">
+                <div class="category-header">
+                    <h2>人工智能服务</h2>
+                    <p>开箱即用的AI能力，让智能化应用开发更简单</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card featured">
+                        <div class="product-badge">热门</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop" alt="机器学习平台">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>机器学习平台 PAI</h3>
+                        <p>一站式机器学习开发与服务平台，覆盖模型开发、训练、部署全流程</p>
+                        <ul class="product-features">
+                            <li>可视化建模</li>
+                            <li>分布式训练</li>
+                            <li>模型在线服务</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=400&h=200&fit=crop" alt="图像识别">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>图像识别</h3>
+                        <p>基于深度学习的图像分析服务，支持物体检测、人脸识别、OCR等</p>
+                        <ul class="product-features">
+                            <li>99.5%+准确率</li>
+                            <li>千种场景识别</li>
+                            <li>自定义模型训练</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=200&fit=crop" alt="自然语言处理">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>自然语言处理</h3>
+                        <p>文本分析、情感分析、机器翻译、智能问答等NLP能力</p>
+                        <ul class="product-features">
+                            <li>语义理解</li>
+                            <li>多语言支持</li>
+                            <li>领域定制</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?w=400&h=200&fit=crop" alt="智能语音">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>智能语音</h3>
+                        <p>语音识别、语音合成、声纹识别等语音AI服务</p>
+                        <ul class="product-features">
+                            <li>98%+识别率</li>
+                            <li>多种音色合成</li>
+                            <li>实时转写</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=200&fit=crop" alt="知识图谱">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>知识图谱</h3>
+                        <p>构建企业知识图谱，实现智能搜索、推荐、问答</p>
+                        <ul class="product-features">
+                            <li>自动实体抽取</li>
+                            <li>关系推理</li>
+                            <li>图谱可视化</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="智能决策">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>智能决策引擎</h3>
+                        <p>基于强化学习的智能决策系统，适用于推荐、定价、调度场景</p>
+                        <ul class="product-features">
+                            <li>实时决策</li>
+                            <li>A/B测试</li>
+                            <li>效果追踪</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 安全服务 -->
+            <div class="product-category" id="security">
+                <div class="category-header">
+                    <h2>安全服务</h2>
+                    <p>全方位的云安全防护体系，保障您的业务安全合规</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card featured">
+                        <div class="product-badge">热门</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=200&fit=crop" alt="云防火墙">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>云防火墙 CFW</h3>
+                        <p>下一代防火墙服务，提供VPC边界防护和微隔离能力</p>
+                        <ul class="product-features">
+                            <li>东西向流量管控</li>
+                            <li>IPS入侵防御</li>
+                            <li>威胁情报联动</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="WAF">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>Web应用防火墙 WAF</h3>
+                        <p>防护SQL注入、XSS、CC攻击等Web攻击，保障业务安全</p>
+                        <ul class="product-features">
+                            <li>0Day漏洞防护</li>
+                            <li>Bot管理</li>
+                            <li>API安全</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&h=200&fit=crop" alt="KMS密钥管理">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>密钥管理服务 KMS</h3>
+                        <p>安全的密钥托管与加密服务，保护敏感数据</p>
+                        <ul class="product-features">
+                            <li>HSM硬件加密</li>
+                            <li>自动密钥轮换</li>
+                            <li>国密算法支持</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=200&fit=crop" alt="安全审计">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>安全审计</h3>
+                        <p>全链路操作审计与日志分析，满足合规要求</p>
+                        <ul class="product-features">
+                            <li>全操作记录</li>
+                            <li>实时告警</li>
+                            <li>等保合规报告</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=200&fit=crop" alt="云安全中心">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>云安全中心</h3>
+                        <p>统一安全管理平台，提供资产盘点、基线检查、漏洞扫描</p>
+                        <ul class="product-features">
+                            <li>全景资产测绘</li>
+                            <li>自动漏洞修复</li>
+                            <li>威胁响应编排</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=200&fit=crop" alt="等保合规">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>等保合规服务</h3>
+                        <p>一站式等级保护测评服务，助力快速通过等保认证</p>
+                        <ul class="product-features">
+                            <li>全流程辅导</li>
+                            <li>合规产品套餐</li>
+                            <li>测评机构对接</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 数据库 -->
+            <div class="product-category" id="database">
+                <div class="category-header">
+                    <h2>数据库服务</h2>
+                    <p>托管的开源和商业数据库，让您专注于业务创新</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card featured">
+                        <div class="product-badge">热门</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=200&fit=crop" alt="MySQL数据库">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>云数据库 MySQL</h3>
+                        <p>稳定可靠的托管MySQL服务，支持主备架构、自动备份</p>
+                        <ul class="product-features">
+                            <li>秒级监控告警</li>
+                            <li>自动故障切换</li>
+                            <li>读写分离</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1623282033815-40b05d96c903?w=400&h=200&fit=crop" alt="PostgreSQL数据库">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>云数据库 PostgreSQL</h3>
+                        <p>企业级开源数据库，支持GIS、JSON、全文检索</p>
+                        <ul class="product-features">
+                            <li>高可用架构</li>
+                            <li>扩展插件支持</li>
+                            <li>逻辑订阅</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="Redis缓存">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>云数据库 Redis</h3>
+                        <p>高性能内存数据库，支持缓存、会话、消息队列场景</p>
+                        <ul class="product-features">
+                            <li>集群版扩缩容</li>
+                            <li>持久化存储</li>
+                            <li>多可用区部署</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=200&fit=crop" alt="MongoDB数据库">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>云数据库 MongoDB</h3>
+                        <p>文档型NoSQL数据库，适合大数据量、高并发场景</p>
+                        <ul class="product-features">
+                            <li>分片集群</li>
+                            <li>自动备份</li>
+                            <li>监控优化</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Elasticsearch搜索">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>云搜索 Elasticsearch</h3>
+                        <p>托管的搜索与分析引擎，支持日志分析、全文检索</p>
+                        <ul class="product-features">
+                            <li>弹性扩缩容</li>
+                            <li>Kibana可视化</li>
+                            <li>安全加固</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=200&fit=crop" alt="时序数据库">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>时序数据库 TSDB</h3>
+                        <p>专为IoT、监控场景优化的时序数据存储</p>
+                        <ul class="product-features">
+                            <li>高吞吐写入</li>
+                            <li>高效聚合查询</li>
+                            <li>数据降采样</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中间件 -->
+            <div class="product-category" id="middleware">
+                <div class="category-header">
+                    <h2>中间件服务</h2>
+                    <p>消息队列、微服务、API网关等企业级中间件</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card featured">
+                        <div class="product-badge">热门</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="消息队列">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>消息队列 MQ</h3>
+                        <p>分布式消息中间件，支持RocketMQ、Kafka、RabbitMQ</p>
+                        <ul class="product-features">
+                            <li>万亿级消息堆积</li>
+                            <li>事务消息</li>
+                            <li>消息轨迹追踪</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop" alt="API网关">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>API 网关</h3>
+                        <p>统一的API接入与管理，提供认证、限流、监控能力</p>
+                        <ul class="product-features">
+                            <li>流量控制</li>
+                            <li>协议转换</li>
+                            <li>灰度发布</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=400&h=200&fit=crop" alt="微服务引擎">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>微服务引擎 MSE</h3>
+                        <p>托管的注册中心、配置中心，兼容Nacos、Eureka</p>
+                        <ul class="product-features">
+                            <li>服务治理</li>
+                            <li>配置推送</li>
+                            <li>无损上下线</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=200&fit=crop" alt="任务调度">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>分布式任务调度</h3>
+                        <p>大规模分布式定时任务调度服务，支持海量任务</p>
+                        <ul class="product-features">
+                            <li>可视化编排</li>
+                            <li>失败重试</li>
+                            <li>分片执行</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&h=200&fit=crop" alt="事件总线">
+                            <div class="product-image-overlay"></div>
+                        </div>
+                        <h3>事件总线 EventBridge</h3>
+                        <p>无服务器事件总线，连接云产品与自定义应用</p>
+                        <ul class="product-features">
+                            <li>事件路由</li>
+                            <li>事件转换</li>
+                            <li>事件归档</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">🔀</div>
+                        <h3>负载均衡 SLB</h3>
+                        <p>流量分发服务，支持四层和七层负载均衡</p>
+                        <ul class="product-features">
+                            <li>健康检查</li>
+                            <li>会话保持</li>
+                            <li>SSL卸载</li>
+                        </ul>
+                        <a href="#" class="product-link">了解详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品优势 -->
+    <section class="product-benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>为什么选择某某科技</h2>
+                <p>专业、可靠、安全的云计算服务提供商</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏆</div>
+                    <h3>行业领先</h3>
+                    <p>深耕云计算领域10年，服务500+企业客户，积累了丰富的行业经验</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔒</div>
+                    <h3>安全合规</h3>
+                    <p>通过等保三级、ISO27001、SOC2等国内外权威认证，保障数据安全</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>高性能</h3>
+                    <p>自研高性能虚拟化技术，单实例支持百万级IOPS，网络延迟低至0.1ms</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛠</div>
+                    <h3>专业支持</h3>
+                    <p>7×24小时技术支持，专家架构师团队提供上云咨询与优化服务</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">☁</span>
+                        <span class="logo-text">某某科技</span>
+                    </div>
+                    <p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p>
+                    <div class="contact-info">
+                        <p>📞 xxx-xxx-xxxx</p>
+                        <p>✉ xxxxxxxx@xxxx.xxx</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="products.html#compute">云计算</a></li>
+                        <li><a href="products.html#storage">数据存储</a></li>
+                        <li><a href="products.html#ai">人工智能</a></li>
+                        <li><a href="products.html#security">安全服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="solutions.html#government">政务云</a></li>
+                        <li><a href="solutions.html#finance">金融云</a></li>
+                        <li><a href="solutions.html#healthcare">医疗云</a></li>
+                        <li><a href="solutions.html#education">教育云</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>支持与资源</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">开发文档</a></li>
+                        <li><a href="#">API参考</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">公司介绍</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 智能助手浮窗 -->
+    <div class="ai-chat-modal" id="aiChatModal">
+        <div class="ai-chat-overlay" id="aiChatOverlay"></div>
+        <div class="ai-chat-container">
+            <div class="ai-chat-header">
+                <div class="ai-chat-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                        <line x1="15" y1="9" x2="15.01" y2="9"/>
+                    </svg>
+                </div>
+                <div class="ai-chat-title">
+                    <h4>智能助手</h4>
+                    <span class="ai-chat-status">在线</span>
+                </div>
+                <button class="ai-chat-close" id="aiChatClose">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="ai-chat-body" id="aiChatBody">
+                <div class="ai-chat-message ai-chat-welcome">
+                    <div class="ai-chat-avatar-small">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                        </svg>
+                    </div>
+                    <div class="ai-chat-bubble ai-chat-bubble-bot">
+                        <p>👋 您好！我是某某科技智能助手。</p>
+                        <p>我可以帮您：</p>
+                        <ul class="ai-chat-suggestions">
+                            <li data-query="政府案例">🏛️ 了解政府行业案例</li>
+                            <li data-query="金融案例">🏦 了解金融行业案例</li>
+                            <li data-query="医疗案例">🏥 了解医疗行业案例</li>
+                            <li data-query="解决方案">💡 查看解决方案</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-chat-footer">
+                <div class="ai-chat-input-wrapper">
+                    <input type="text" class="ai-chat-input" id="aiChatInput" placeholder="输入您的问题，如：政府、金融">
+                    <button class="ai-chat-send" id="aiChatSend">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="ai-chat-quick-actions">
+                    <button class="quick-action-btn" data-query="产品咨询">产品咨询</button>
+                    <button class="quick-action-btn" data-query="解决方案">解决方案</button>
+                    <button class="quick-action-btn" data-query="价格报价">价格报价</button>
+                    <button class="quick-action-btn" data-query="技术支持">技术支持</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // 产品分类切换
+        document.querySelectorAll('.product-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // 切换标签状态
+                document.querySelectorAll('.product-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // 切换内容显示
+                document.querySelectorAll('.product-category').forEach(c => c.classList.remove('active'));
+                document.getElementById(category).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

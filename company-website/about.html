@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+</head>
+<body class="page-about">
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品服务</a>
+                <a href="solutions.html">解决方案</a>
+                <a href="cases.html">成功案例</a>
+                <a href="about.html" class="active">关于我们</a>
+            </nav>
+            <div class="header-search">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="headerSearchInput" placeholder="我要找方案" autocomplete="off">
+                </div>
+                <div class="search-results" id="searchResults">
+                    <div class="search-results-content">
+                        <div class="search-section">
+                            <h4>客户案例</h4>
+                            <div id="caseResults"></div>
+                        </div>
+                        <div class="search-section">
+                            <h4>解决方案</h4>
+                            <div id="solutionResults"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary">免费试用</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="page-hero">
+        <div class="page-hero-bg">
+            <!-- 山脉轮廓背景 -->
+            <div class="mountain-bg">
+                <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
+                    <path class="mountain-range-1" d="M0,400 L0,300 Q150,200 300,280 T600,250 T900,280 T1200,200 L1200,400 Z"/>
+                    <path class="mountain-range-2" d="M0,400 L0,350 Q200,280 400,320 T800,280 T1200,320 L1200,400 Z"/>
+                    <path class="mountain-range-3" d="M0,400 L0,380 Q300,350 600,360 T1200,340 L1200,400 Z"/>
+                </svg>
+            </div>
+            <!-- 上升曲线装饰 -->
+            <div class="growth-chart">
+                <svg viewBox="0 0 600 300">
+                    <!-- 网格背景 -->
+                    <defs>
+                        <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(0,198,255,0.1)" stroke-width="1"/>
+                        </pattern>
+                    </defs>
+                    <rect width="600" height="300" fill="url(#grid)"/>
+                    <!-- 增长曲线 -->
+                    <path class="growth-line" d="M0,280 Q100,260 200,200 T400,120 T600,50"/>
+                    <!-- 数据点 -->
+                    <circle cx="0" cy="280" r="6" class="data-point"/>
+                    <circle cx="150" cy="230" r="6" class="data-point"/>
+                    <circle cx="300" cy="160" r="6" class="data-point"/>
+                    <circle cx="450" cy="90" r="6" class="data-point"/>
+                    <circle cx="600" cy="50" r="8" class="data-point highlight"/>
+                    <!-- 填充区域 -->
+                    <path class="growth-area" d="M0,280 Q100,260 200,200 T400,120 T600,50 L600,300 L0,300 Z"/>
+                </svg>
+            </div>
+            <!-- 飞鸟装饰 -->
+            <div class="birds">
+                <span class="bird bird-1"></span>
+                <span class="bird bird-2"></span>
+                <span class="bird bird-3"></span>
+            </div>
+            <!-- 年份时间轴 -->
+            <div class="year-timeline">
+                <div class="timeline-item" style="left: 0%;">
+                    <span class="year">2014</span>
+                    <span class="event">创立</span>
+                </div>
+                <div class="timeline-item" style="left: 20%;">
+                    <span class="year">2016</span>
+                    <span class="event">A轮</span>
+                </div>
+                <div class="timeline-item" style="left: 40%;">
+                    <span class="year">2018</span>
+                    <span class="event">B轮</span>
+                </div>
+                <div class="timeline-item" style="left: 60%;">
+                    <span class="year">2020</span>
+                    <span class="event">独角兽</span>
+                </div>
+                <div class="timeline-item" style="left: 80%;">
+                    <span class="year">2024</span>
+                    <span class="event">领航者</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">About Us</div>
+                <h1>关于<span class="highlight">某某科技</span></h1>
+                <p>十年深耕云计算，用技术驱动企业数字化转型</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section class="company-intro">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-content">
+                    <h2>公司简介</h2>
+                    <p>某某科技成立于2014年，是国内领先的企业级云计算服务提供商。我们致力于为企业提供安全、可靠、高效的云计算、大数据和人工智能服务，帮助企业实现数字化转型。</p>
+                    <p>经过十年的发展，某某科技已服务超过500家企业客户，覆盖政务、金融、医疗、教育、制造、零售等多个行业。我们在北京、上海、广州、深圳、成都、西安等地设有分支机构，拥有超过1000名技术专家。</p>
+                    <div class="intro-highlights">
+                        <div class="highlight-item">
+                            <span class="number">10</span>
+                            <span class="label">年行业深耕</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="number">500+</span>
+                            <span class="label">企业客户</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="number">1000+</span>
+                            <span class="label">技术专家</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="number">50+</span>
+                            <span class="label">服务城市</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-image">
+                    <div class="image-placeholder">
+                        <span>🏢</span>
+                        <p>某某科技总部</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 发展历程 -->
+    <section class="history-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>发展历程</h2>
+                <p>见证某某科技的成长之路</p>
+            </div>
+            <div class="history-timeline">
+                <div class="timeline-line-vertical"></div>
+                <div class="history-item left">
+                    <div class="history-content">
+                        <span class="year">2014</span>
+                        <h3>公司成立</h3>
+                        <p>某某科技在北京成立，开启云计算服务之路</p>
+                    </div>
+                </div>
+                <div class="history-item right">
+                    <div class="history-content">
+                        <span class="year">2016</span>
+                        <h3>获得A轮融资</h3>
+                        <p>完成数千万美元A轮融资，加速产品研发</p>
+                    </div>
+                </div>
+                <div class="history-item left">
+                    <div class="history-content">
+                        <span class="year">2018</span>
+                        <h3>发布AI平台</h3>
+                        <p>人工智能平台上线，提供完整的AI开发服务</p>
+                    </div>
+                </div>
+                <div class="history-item right">
+                    <div class="history-content">
+                        <span class="year">2020</span>
+                        <h3>成为独角兽</h3>
+                        <p>估值突破10亿美元，成为云计算领域独角兽</p>
+                    </div>
+                </div>
+                <div class="history-item left">
+                    <div class="history-content">
+                        <span class="year">2022</span>
+                        <h3>出海战略</h3>
+                        <p>开启国际化布局，服务东南亚和中东市场</p>
+                    </div>
+                </div>
+                <div class="history-item right">
+                    <div class="history-content">
+                        <span class="year">2024</span>
+                        <h3>行业领航者</h3>
+                        <p>服务500+企业客户，成为行业数字化转型领航者</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业文化 -->
+    <section class="culture-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>企业文化</h2>
+                <p>我们的使命、愿景和价值观</p>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-card mission">
+                    <div class="culture-icon">🎯</div>
+                    <h3>使命</h3>
+                    <p>用科技赋能企业，让数字化转型更简单</p>
+                </div>
+                <div class="culture-card vision">
+                    <div class="culture-icon">🚀</div>
+                    <h3>愿景</h3>
+                    <p>成为全球领先的企业数字化转型伙伴</p>
+                </div>
+                <div class="culture-card values">
+                    <div class="culture-icon">💎</div>
+                    <h3>价值观</h3>
+                    <ul>
+                        <li>客户第一</li>
+                        <li>追求卓越</li>
+                        <li>开放协作</li>
+                        <li>诚信担当</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队介绍 -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心团队</h2>
+                <p>来自全球顶尖科技企业的精英团队</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <span>陈</span>
+                    </div>
+                    <h3>陈明</h3>
+                    <p class="member-role">创始人 & CEO</p>
+                    <p class="member-bio">前阿里云副总裁，20年云计算行业经验</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <span>李</span>
+                    </div>
+                    <h3>李华</h3>
+                    <p class="member-role">联合创始人 & CTO</p>
+                    <p class="member-bio">前Google高级工程师，分布式系统专家</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <span>王</span>
+                    </div>
+                    <h3>王芳</h3>
+                    <p class="member-role">VP of Engineering</p>
+                    <p class="member-bio">前微软Principal Engineer，云原生技术专家</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <span>张</span>
+                    </div>
+                    <h3>张伟</h3>
+                    <p class="member-role">VP of Sales</p>
+                    <p class="member-bio">前IBM销售总监，深耕企业级市场15年</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 荣誉资质 -->
+    <section class="awards-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>荣誉资质</h2>
+                <p>行业认可，值得信赖</p>
+            </div>
+            <div class="awards-grid">
+                <div class="award-item">
+                    <div class="award-icon">🏆</div>
+                    <h4>国家级高新技术企业</h4>
+                    <p>科技部认定</p>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">📜</div>
+                    <h4>等保三级认证</h4>
+                    <p>信息安全等级保护</p>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">✅</div>
+                    <h4>ISO 27001</h4>
+                    <p>信息安全管理体系</p>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">⭐</div>
+                    <h4>中国云计算领军企业</h4>
+                    <p>行业权威评选</p>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">🥇</div>
+                    <h4>最佳企业服务奖</h4>
+                    <p>2023年度</p>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">💡</div>
+                    <h4>50+ 技术专利</h4>
+                    <p>自主研发创新</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info-box">
+                    <h2>联系我们</h2>
+                    <p>期待与您的合作，共同开启数字化转型之旅</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="icon">📞</span>
+                            <div>
+                                <label>客服热线</label>
+                                <p>xxx-xxx-xxxx</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">✉</span>
+                            <div>
+                                <label>商务邮箱</label>
+                                <p>xxxxxxxx@xxxx.xxx</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📍</span>
+                            <div>
+                                <label>总部地址</label>
+                                <p>北京市海淀区中关村科技园</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-box">
+                    <h3>在线咨询</h3>
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <input type="text" placeholder="您的姓名" class="form-input">
+                            <input type="text" placeholder="公司名称" class="form-input">
+                        </div>
+                        <div class="form-row">
+                            <input type="tel" placeholder="联系电话" class="form-input">
+                            <input type="email" placeholder="电子邮箱" class="form-input">
+                        </div>
+                        <select class="form-select">
+                            <option>选择咨询类型</option>
+                            <option>产品咨询</option>
+                            <option>解决方案</option>
+                            <option>商务合作</option>
+                            <option>技术支持</option>
+                        </select>
+                        <textarea placeholder="请描述您的需求..." class="form-textarea"></textarea>
+                        <button type="submit" class="btn btn-primary btn-large">提交咨询</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">☁</span>
+                        <span class="logo-text">某某科技</span>
+                    </div>
+                    <p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p>
+                    <div class="contact-info">
+                        <p>📞 xxx-xxx-xxxx</p>
+                        <p>✉ xxxxxxxx@xxxx.xxx</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="products.html#compute">云计算</a></li>
+                        <li><a href="products.html#storage">数据存储</a></li>
+                        <li><a href="products.html#ai">人工智能</a></li>
+                        <li><a href="products.html#security">安全服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="solutions.html#government">政务云</a></li>
+                        <li><a href="solutions.html#finance">金融云</a></li>
+                        <li><a href="solutions.html#healthcare">医疗云</a></li>
+                        <li><a href="solutions.html#education">教育云</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>支持与资源</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">开发文档</a></li>
+                        <li><a href="#">API参考</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">公司介绍</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 智能助手浮窗 -->
+    <div class="ai-chat-modal" id="aiChatModal">
+        <div class="ai-chat-overlay" id="aiChatOverlay"></div>
+        <div class="ai-chat-container">
+            <div class="ai-chat-header">
+                <div class="ai-chat-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                        <line x1="15" y1="9" x2="15.01" y2="9"/>
+                    </svg>
+                </div>
+                <div class="ai-chat-title">
+                    <h4>智能助手</h4>
+                    <span class="ai-chat-status">在线</span>
+                </div>
+                <button class="ai-chat-close" id="aiChatClose">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="ai-chat-body" id="aiChatBody">
+                <div class="ai-chat-message ai-chat-welcome">
+                    <div class="ai-chat-avatar-small">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                        </svg>
+                    </div>
+                    <div class="ai-chat-bubble ai-chat-bubble-bot">
+                        <p>👋 您好！我是某某科技智能助手。</p>
+                        <p>我可以帮您：</p>
+                        <ul class="ai-chat-suggestions">
+                            <li data-query="政府案例">🏛️ 了解政府行业案例</li>
+                            <li data-query="金融案例">🏦 了解金融行业案例</li>
+                            <li data-query="医疗案例">🏥 了解医疗行业案例</li>
+                            <li data-query="解决方案">💡 查看解决方案</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-chat-footer">
+                <div class="ai-chat-input-wrapper">
+                    <input type="text" class="ai-chat-input" id="aiChatInput" placeholder="输入您的问题，如：政府、金融">
+                    <button class="ai-chat-send" id="aiChatSend">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="ai-chat-quick-actions">
+                    <button class="quick-action-btn" data-query="产品咨询">产品咨询</button>
+                    <button class="quick-action-btn" data-query="解决方案">解决方案</button>
+                    <button class="quick-action-btn" data-query="价格报价">价格报价</button>
+                    <button class="quick-action-btn" data-query="技术支持">技术支持</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例详情：某三甲医院智慧医院 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+    <style>
+        .case-detail-hero {
+            background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+        }
+        .case-detail-hero .page-tag {
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .case-detail-hero h1 .highlight {
+            background: linear-gradient(135deg, #fff, #ffeb3b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .case-overview {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .case-description h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        .case-description p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .case-meta-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            position: sticky;
+            top: 100px;
+        }
+        .meta-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+        .meta-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .meta-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .case-metrics-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .metric-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .metric-card .number {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fc4a1a, #f7b733);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .metric-card .label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .case-content-section {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .content-block {
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
+        .content-block h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .content-block h3 .icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fc4a1a, #f7b733);
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        .content-block ul {
+            list-style: none;
+        }
+        .content-block li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 15px;
+            color: var(--text-secondary);
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .content-block li:last-child {
+            border-bottom: none;
+        }
+        .content-block.challenges li::before {
+            content: '!';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: #e94560;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .content-block.solutions li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: #11998e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .related-cases {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+        .case-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-case {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all 0.3s;
+            max-width: 45%;
+        }
+        .nav-case:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        .nav-case:hover .nav-label,
+        .nav-case:hover .nav-title {
+            color: white;
+        }
+        .nav-case.prev {
+            flex-direction: row;
+        }
+        .nav-case.next {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        .nav-arrow {
+            font-size: 24px;
+        }
+        .nav-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        .nav-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        @media (max-width: 1024px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-meta-card {
+                position: static;
+            }
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav-case {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品服务</a>
+                <a href="solutions.html">解决方案</a>
+                <a href="cases.html" class="active">成功案例</a>
+                <a href="about.html">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary">免费试用</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 案例详情头部 -->
+    <section class="page-hero case-detail-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">Healthcare Case Study</div>
+                <h1>某三甲医院<br><span class="highlight">智慧医院建设</span></h1>
+                <p>建设互联网医院平台和医疗影像云，年服务患者超100万人次</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例概览 -->
+    <section class="case-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="case-description">
+                    <h2>项目背景</h2>
+                    <p>某三甲医院是当地规模最大的综合性医院之一，日均门诊量超过8000人次。随着患者数量持续增长，传统的就医模式已难以满足患者需求。为改善患者就医体验、提升医疗服务质量，医院决定启动智慧医院建设项目。</p>
+                    <p>项目重点打造互联网医院平台和医疗影像云，实现线上线下一体化服务，让患者少跑腿、数据多跑路。</p>
+                </div>
+                <div class="case-meta-card">
+                    <div class="meta-item">
+                        <div class="meta-label">客户行业</div>
+                        <div class="meta-value">三级甲等医院</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">项目周期</div>
+                        <div class="meta-value">10个月</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">服务范围</div>
+                        <div class="meta-value">全院信息化升级</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">核心产品</div>
+                        <div class="meta-value">医疗云、影像云</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心指标 -->
+    <section class="case-metrics-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2>项目成效</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">用数据说话，见证数字化转型价值</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="number">100万+</div>
+                    <div class="label">年服务患者</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">30%</div>
+                    <div class="label">满意度提升</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">50%</div>
+                    <div class="label">等候时间降低</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">40%</div>
+                    <div class="label">胶片成本节约</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 挑战与方案 -->
+    <section class="case-content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-block challenges">
+                    <h3><span class="icon">⚠️</span>业务挑战</h3>
+                    <ul>
+                        <li>患者挂号、缴费排队时间长，就医体验差</li>
+                        <li>影像数据增长快，存储压力大，调阅不便</li>
+                        <li>复诊患者往返医院不便，特别是外地患者</li>
+                        <li>各业务系统数据孤岛，缺乏统一的患者视图</li>
+                    </ul>
+                </div>
+                <div class="content-block solutions">
+                    <h3><span class="icon">💡</span>解决方案</h3>
+                    <ul>
+                        <li>建设互联网医院平台，支持在线挂号、缴费、查询报告</li>
+                        <li>部署医疗影像云，实现影像数据云端存储和共享</li>
+                        <li>开通在线复诊服务，医生可在线开具处方，药品配送到家</li>
+                        <li>构建临床数据中心，整合患者诊疗数据，辅助医生决策</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section class="case-content-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>客户评价</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; background: var(--bg-light); padding: 48px; border-radius: var(--radius-lg);">
+                <div style="font-size: 60px; color: var(--primary-color); opacity: 0.3; line-height: 1;">"</div>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-primary); margin: -20px 0 24px; position: relative; z-index: 1;">
+                    智慧医院建设大大改善了患者的就医体验，现在患者可以通过手机完成大部分就医流程。影像云的使用也让我们摆脱了胶片存储的困扰，医生可以随时随地查看患者影像，提升了诊疗效率。
+                </p>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #fc4a1a, #f7b733); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: 600;">陈</div>
+                    <div>
+                        <div style="font-size: 16px; font-weight: 600; color: var(--text-primary);">陈院长</div>
+                        <div style="font-size: 14px; color: var(--text-secondary);">某三甲医院 副院长</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相关案例 -->
+    <section class="related-cases">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <h2>相关案例</h2>
+            </div>
+            <div class="case-nav">
+                <a href="case-insurance.html" class="nav-case prev">
+                    <span class="nav-arrow">←</span>
+                    <div>
+                        <div class="nav-label">上一个案例</div>
+                        <div class="nav-title">某保险公司智能理赔系统</div>
+                    </div>
+                </a>
+                <a href="case-education.html" class="nav-case next">
+                    <span class="nav-arrow">→</span>
+                    <div>
+                        <div class="nav-label">下一个案例</div>
+                        <div class="nav-title">某省教育厅教育云平台</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">☁</span>
+                        <span class="logo-text">某某科技</span>
+                    </div>
+                    <p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="products.html">云计算</a></li>
+                        <li><a href="products.html">数据存储</a></li>
+                        <li><a href="products.html">人工智能</a></li>
+                        <li><a href="products.html">安全服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="solution-government.html">政务云</a></li>
+                        <li><a href="solution-finance.html">金融云</a></li>
+                        <li><a href="solution-healthcare.html">医疗云</a></li>
+                        <li><a href="solution-education.html">教育云</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">公司介绍</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

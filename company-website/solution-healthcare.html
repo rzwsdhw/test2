@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧医疗解决方案 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+    <style>
+        .solution-detail-hero {
+            background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+        }
+        .solution-detail-hero .page-tag {
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .solution-detail-hero h1 .highlight {
+            background: linear-gradient(135deg, #fff, #ffeb3b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .architecture-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        .architecture-diagram {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            box-shadow: var(--shadow-md);
+        }
+        .arch-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .arch-layer {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #fc4a1a;
+        }
+        .arch-layer.application { background: #ffebee; }
+        .arch-layer.platform { background: #fff3e0; }
+        .arch-layer.data { background: #e8f5e9; }
+        .arch-layer.infrastructure { background: #e3f2fd; }
+        .arch-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            font-size: 28px;
+            box-shadow: var(--shadow-sm);
+        }
+        .arch-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .arch-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .arch-arrow {
+            text-align: center;
+            font-size: 24px;
+            color: #fc4a1a;
+        }
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .scenario-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        .scenario-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: #fc4a1a;
+        }
+        .scenario-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fc4a1a, #f7b733);
+            border-radius: 50%;
+            font-size: 36px;
+            margin: 0 auto 20px;
+        }
+        .scenario-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .scenario-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .related-cases {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+        .case-highlight {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-top: 48px;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .case-image-box {
+            height: 100%;
+            min-height: 400px;
+        }
+        .case-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .case-info-box {
+            padding: 48px;
+        }
+        .case-info-box h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .case-info-box p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .case-metric {
+            text-align: center;
+            padding: 16px;
+            background: white;
+            border-radius: var(--radius-md);
+        }
+        .case-metric .value {
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            color: #fc4a1a;
+        }
+        .case-metric .label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        @media (max-width: 1024px) {
+            .scenario-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .case-highlight {
+                grid-template-columns: 1fr;
+            }
+            .case-image-box {
+                min-height: 250px;
+            }
+        }
+        @media (max-width: 768px) {
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品服务</a>
+                <a href="solutions.html" class="active">解决方案</a>
+                <a href="cases.html">成功案例</a>
+                <a href="about.html">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary">免费试用</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 方案详情头部 -->
+    <section class="page-hero solution-detail-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">Healthcare Solution</div>
+                <h1>智慧医疗<br><span class="highlight">解决方案</span></h1>
+                <p>构建医疗信息化平台，实现医疗数据互联互通，提升医疗服务质量和运营效率。</p>
+                <div style="margin-top: 32px;">
+                    <a href="#consult" class="btn btn-primary btn-large">获取方案</a>
+                    <a href="cases.html" class="btn btn-outline-light btn-large" style="margin-left: 16px;">查看案例</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心价值 -->
+    <section class="product-benefits">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>方案核心价值</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">科技赋能医疗健康，让医疗服务更智能、更高效</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏥</div>
+                    <h3>互联网医院</h3>
+                    <p>在线问诊、处方流转、药品配送一体化，打破时空限制，让就医更便捷</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🖼️</div>
+                    <h3>医疗影像云</h3>
+                    <p>影像数据云端存储，AI辅助诊断，提升诊断准确率和效率</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📱</div>
+                    <h3>智慧病房</h3>
+                    <p>IoT设备联动，智能输液监控，提升患者体验和护理效率</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔒</div>
+                    <h3>数据安全</h3>
+                    <p>符合HIPAA标准，多层级安全防护，保护患者隐私数据</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用场景 -->
+    <section class="solutions-list">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>应用场景</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">覆盖医疗服务全链条，提升医疗质量和效率</p>
+            </div>
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-icon">💻</div>
+                    <h3>互联网医院</h3>
+                    <p>在线挂号、视频问诊、电子处方、药品配送到家，足不出户享受优质医疗服务</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🖼️</div>
+                    <h3>影像云</h3>
+                    <p>云PACS系统，影像数据云端存储和共享，AI辅助阅片，提升诊断效率</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🏨</div>
+                    <h3>智慧医院管理</h3>
+                    <p>HRP、HIS系统云化，医疗资源智能调度，提升医院运营效率</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🌐</div>
+                    <h3>区域医疗协同</h3>
+                    <p>医联体信息平台，双向转诊、远程会诊，促进分级诊疗落地</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术架构 -->
+    <section class="architecture-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>技术架构</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">安全合规、互联互通的医疗云架构</p>
+            </div>
+            <div class="architecture-diagram">
+                <div class="arch-layers">
+                    <div class="arch-layer application">
+                        <div class="arch-icon">📱</div>
+                        <div class="arch-content">
+                            <h4>应用服务层</h4>
+                            <p>互联网医院平台、预约挂号系统、电子病历系统、医疗影像系统、医保结算系统</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-layer platform">
+                        <div class="arch-icon">⚙️</div>
+                        <div class="arch-content">
+                            <h4>能力支撑层</h4>
+                            <p>AI辅助诊断引擎、医学影像分析平台、智能问诊机器人、临床决策支持系统</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-layer data">
+                        <div class="arch-icon">💾</div>
+                        <div class="arch-content">
+                            <h4>数据资源层</h4>
+                            <p>健康档案库、电子病历库、影像数据库、临床数据中心、科研数据平台</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-layer infrastructure">
+                        <div class="arch-icon">☁️</div>
+                        <div class="arch-content">
+                            <h4>基础设施层</h4>
+                            <p>医疗云平台、数据安全网关、等保三级防护、灾备双活架构</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户案例 -->
+    <section class="related-cases">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>客户案例</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">与众多医疗机构携手，共创智慧医疗新未来</p>
+            </div>
+            <div class="case-highlight">
+                <div class="case-image-box">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop" alt="三甲医院智慧医院">
+                </div>
+                <div class="case-info-box">
+                    <div class="case-category-tag">三甲医院案例</div>
+                    <h3>某三甲医院智慧医院建设</h3>
+                    <p>建设互联网医院平台和医疗影像云，实现远程诊疗和影像数据云端存储。通过智慧化改造，年服务患者超100万人次，患者满意度提升30%，医疗差错率降低50%。</p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <span class="value">100万+</span>
+                            <span class="label">年服务量</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="value">30%</span>
+                            <span class="label">满意度提升</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="value">50%</span>
+                            <span class="label">差错率降低</span>
+                        </div>
+                    </div>
+                    <a href="cases.html" class="btn btn-primary">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 咨询CTA -->
+    <section class="solution-cta" id="consult">
+        <div class="container">
+            <div class="cta-box">
+                <h2>获取医疗专属解决方案</h2>
+                <p>我们的医疗行业专家将为您提供专业可靠的数字化转型咨询服务</p>
+                <div class="cta-form">
+                    <input type="text" placeholder="您的姓名" class="form-input">
+                    <input type="text" placeholder="医院/机构名称" class="form-input">
+                    <input type="tel" placeholder="联系电话" class="form-input">
+                    <select class="form-select">
+                        <option>选择机构类型</option>
+                        <option>三级医院</option>
+                        <option>二级医院</option>
+                        <option>一级医院</option>
+                        <option>基层医疗机构</option>
+                        <option>卫健委</option>
+                    </select>
+                    <button class="btn btn-primary btn-large">获取方案</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">☁</span>
+                        <span class="logo-text">某某科技</span>
+                    </div>
+                    <p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="products.html">云计算</a></li>
+                        <li><a href="products.html">数据存储</a></li>
+                        <li><a href="products.html">人工智能</a></li>
+                        <li><a href="products.html">安全服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="solution-government.html">政务云</a></li>
+                        <li><a href="solution-finance.html">金融云</a></li>
+                        <li><a href="solution-healthcare.html">医疗云</a></li>
+                        <li><a href="solution-education.html">教育云</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>支持与资源</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">开发文档</a></li>
+                        <li><a href="#">API参考</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">公司介绍</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

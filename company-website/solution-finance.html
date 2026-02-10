@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金融科技解决方案 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+    <style>
+        .solution-detail-hero {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        .solution-detail-hero .page-tag {
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .solution-detail-hero h1 .highlight {
+            background: linear-gradient(135deg, #ffd700, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .architecture-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        .architecture-diagram {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            box-shadow: var(--shadow-md);
+        }
+        .arch-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .arch-layer {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #11998e;
+        }
+        .arch-layer.application { background: #e8f5e9; }
+        .arch-layer.platform { background: #e0f2f1; }
+        .arch-layer.data { background: #fff8e1; }
+        .arch-layer.infrastructure { background: #f3e5f5; }
+        .arch-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            font-size: 28px;
+            box-shadow: var(--shadow-sm);
+        }
+        .arch-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .arch-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .arch-arrow {
+            text-align: center;
+            font-size: 24px;
+            color: #11998e;
+        }
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .scenario-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        .scenario-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: #11998e;
+        }
+        .scenario-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            border-radius: 50%;
+            font-size: 36px;
+            margin: 0 auto 20px;
+        }
+        .scenario-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .scenario-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .related-cases {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+        .case-highlight {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-top: 48px;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .case-image-box {
+            height: 100%;
+            min-height: 400px;
+        }
+        .case-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .case-info-box {
+            padding: 48px;
+        }
+        .case-info-box h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .case-info-box p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .case-metric {
+            text-align: center;
+            padding: 16px;
+            background: white;
+            border-radius: var(--radius-md);
+        }
+        .case-metric .value {
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            color: #11998e;
+        }
+        .case-metric .label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        @media (max-width: 1024px) {
+            .scenario-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .case-highlight {
+                grid-template-columns: 1fr;
+            }
+            .case-image-box {
+                min-height: 250px;
+            }
+        }
+        @media (max-width: 768px) {
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品服务</a>
+                <a href="solutions.html" class="active">解决方案</a>
+                <a href="cases.html">成功案例</a>
+                <a href="about.html">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary">免费试用</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 方案详情头部 -->
+    <section class="page-hero solution-detail-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">Finance Solution</div>
+                <h1>金融科技<br><span class="highlight">解决方案</span></h1>
+                <p>为银行、保险、证券等金融机构提供安全合规的云计算服务，支持业务创新与数字化转型。</p>
+                <div style="margin-top: 32px;">
+                    <a href="#consult" class="btn btn-primary btn-large">获取方案</a>
+                    <a href="cases.html" class="btn btn-outline-light btn-large" style="margin-left: 16px;">查看案例</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心价值 -->
+    <section class="product-benefits">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>方案核心价值</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">安全可靠、合规高效的金融科技底座</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏦</div>
+                    <h3>两地三中心</h3>
+                    <p>金融级容灾架构，RPO=0，RTO&lt;30秒，保障业务连续性</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>智能风控</h3>
+                    <p>实时反欺诈系统，风险识别准确率达99.5%，有效防范金融风险</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>敏捷开发</h3>
+                    <p>DevOps平台支持，应用发布频率提升10倍，快速响应市场变化</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📋</div>
+                    <h3>监管合规</h3>
+                    <p>满足银保监会、央行等监管要求，通过多项金融安全认证</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用场景 -->
+    <section class="solutions-list">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>应用场景</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">覆盖金融业务全场景，助力金融机构数字化转型</p>
+            </div>
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-icon">💳</div>
+                    <h3>核心系统云化</h3>
+                    <p>银行核心系统云原生改造，提升系统性能5倍，降低IT成本40%</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🔍</div>
+                    <h3>智能风控</h3>
+                    <p>基于AI的实时风控平台，毫秒级风险识别，保障资金安全</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🔓</div>
+                    <h3>开放银行</h3>
+                    <p>API开放平台建设，支持场景金融、生态合作，拓展业务边界</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">📱</div>
+                    <h3>保险科技</h3>
+                    <p>智能核保、智能理赔、精准营销，保险全流程数字化升级</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术架构 -->
+    <section class="architecture-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>技术架构</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">高可用、高安全、高性能的金融云架构</p>
+            </div>
+            <div class="architecture-diagram">
+                <div class="arch-layers">
+                    <div class="arch-layer application">
+                        <div class="arch-icon">📱</div>
+                        <div class="arch-content">
+                            <h4>业务应用层</h4>
+                            <p>移动银行、网上银行、核心银行系统、保险核心系统、证券交易系统</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-layer platform">
+                        <div class="arch-icon">⚙️</div>
+                        <div class="arch-content">
+                            <h4>能力平台层</h4>
+                            <p>风控决策引擎、智能客服平台、生物识别平台、区块链BaaS平台</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-layer data">
+                        <div class="arch-icon">💾</div>
+                        <div class="arch-content">
+                            <h4>数据智能层</h4>
+                            <p>实时计算平台、数据仓库、AI机器学习平台、用户画像系统</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-layer infrastructure">
+                        <div class="arch-icon">☁️</div>
+                        <div class="arch-content">
+                            <h4>基础设施层</h4>
+                            <p>两地三中心架构、金融级云主机、分布式数据库、全链路监控</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户案例 -->
+    <section class="related-cases">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>客户案例</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">与众多金融机构携手，共创金融科技新生态</p>
+            </div>
+            <div class="case-highlight">
+                <div class="case-image-box">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop" alt="城商行核心系统云化">
+                </div>
+                <div class="case-info-box">
+                    <div class="case-category-tag">银行业案例</div>
+                    <h3>某城商行核心系统云化</h3>
+                    <p>帮助某城商行完成核心系统云原生改造，采用分布式架构重构核心系统，系统处理能力提升5倍，IT成本降低40%，业务创新速度大幅提升。</p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <span class="value">5x</span>
+                            <span class="label">性能提升</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="value">40%</span>
+                            <span class="label">成本降低</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="value">99.99%</span>
+                            <span class="label">可用性</span>
+                        </div>
+                    </div>
+                    <a href="cases.html" class="btn btn-primary">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 咨询CTA -->
+    <section class="solution-cta" id="consult">
+        <div class="container">
+            <div class="cta-box">
+                <h2>获取金融专属解决方案</h2>
+                <p>我们的金融行业专家将为您提供安全合规的数字化转型咨询服务</p>
+                <div class="cta-form">
+                    <input type="text" placeholder="您的姓名" class="form-input">
+                    <input type="text" placeholder="机构名称" class="form-input">
+                    <input type="tel" placeholder="联系电话" class="form-input">
+                    <select class="form-select">
+                        <option>选择机构类型</option>
+                        <option>银行</option>
+                        <option>保险</option>
+                        <option>证券</option>
+                        <option>基金</option>
+                        <option>其他</option>
+                    </select>
+                    <button class="btn btn-primary btn-large">获取方案</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">☁</span>
+                        <span class="logo-text">某某科技</span>
+                    </div>
+                    <p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="products.html">云计算</a></li>
+                        <li><a href="products.html">数据存储</a></li>
+                        <li><a href="products.html">人工智能</a></li>
+                        <li><a href="products.html">安全服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="solution-government.html">政务云</a></li>
+                        <li><a href="solution-finance.html">金融云</a></li>
+                        <li><a href="solution-healthcare.html">医疗云</a></li>
+                        <li><a href="solution-education.html">教育云</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>支持与资源</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">开发文档</a></li>
+                        <li><a href="#">API参考</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">公司介绍</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

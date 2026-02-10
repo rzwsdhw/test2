@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例详情：某汽车集团工业互联网平台 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+    <style>
+        .case-detail-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .case-detail-hero .page-tag { color: #fff; background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
+        .case-detail-hero h1 .highlight { background: linear-gradient(135deg, #fff, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .case-overview { padding: 80px 0; background: var(--bg-white); }
+        .overview-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: start; }
+        .case-description h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; color: var(--text-primary); }
+        .case-description p { font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px; }
+        .case-meta-card { background: var(--bg-light); border-radius: var(--radius-lg); padding: 32px; position: sticky; top: 100px; }
+        .meta-item { padding: 16px 0; border-bottom: 1px solid var(--border-color); }
+        .meta-item:last-child { border-bottom: none; }
+        .meta-label { font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+        .meta-value { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+        .case-metrics-section { padding: 80px 0; background: var(--bg-light); }
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .metric-card { background: var(--bg-white); border-radius: var(--radius-md); padding: 32px 24px; text-align: center; box-shadow: var(--shadow-sm); }
+        .metric-card .number { font-size: 48px; font-weight: 700; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .metric-card .label { font-size: 14px; color: var(--text-secondary); }
+        .case-content-section { padding: 80px 0; background: var(--bg-white); }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+        .content-block { background: var(--bg-light); border-radius: var(--radius-lg); padding: 40px; }
+        .content-block h3 { font-size: 20px; font-weight: 600; margin-bottom: 24px; color: var(--text-primary); display: flex; align-items: center; gap: 12px; }
+        .content-block h3 .icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; font-size: 20px; }
+        .content-block ul { list-style: none; }
+        .content-block li { padding: 12px 0; padding-left: 28px; position: relative; font-size: 15px; color: var(--text-secondary); border-bottom: 1px dashed var(--border-color); }
+        .content-block li:last-child { border-bottom: none; }
+        .content-block.challenges li::before { content: '!'; position: absolute; left: 0; width: 20px; height: 20px; background: #e94560; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
+        .content-block.solutions li::before { content: '✓'; position: absolute; left: 0; width: 20px; height: 20px; background: #11998e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
+        .related-cases { padding: 80px 0; background: var(--bg-white); }
+        .case-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border-color); }
+        .nav-case { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--bg-light); border-radius: var(--radius-md); text-decoration: none; transition: all 0.3s; max-width: 45%; }
+        .nav-case:hover { background: var(--primary-color); color: white; }
+        .nav-case:hover .nav-label, .nav-case:hover .nav-title { color: white; }
+        .nav-case.prev { flex-direction: row; }
+        .nav-case.next { flex-direction: row-reverse; text-align: right; }
+        .nav-arrow { font-size: 24px; }
+        .nav-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+        .nav-title { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        @media (max-width: 1024px) { .overview-grid { grid-template-columns: 1fr; } .case-meta-card { position: static; } .metrics-grid { grid-template-columns: repeat(2, 1fr); } .content-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .metrics-grid { grid-template-columns: 1fr; } .case-nav { flex-direction: column; gap: 16px; } .nav-case { max-width: 100%; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav"><a href="index.html">首页</a><a href="products.html">产品服务</a><a href="solutions.html">解决方案</a><a href="cases.html" class="active">成功案例</a><a href="about.html">关于我们</a></nav>
+            <div class="header-actions"><button class="btn btn-primary">免费试用</button></div>
+        </div>
+    </header>
+
+    <section class="page-hero case-detail-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">Manufacturing Case Study</div>
+                <h1>某汽车集团<br><span class="highlight">工业互联网平台</span></h1>
+                <p>连接10万+台设备，实现生产过程可视化和预测性维护，产能提升25%</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="case-description">
+                    <h2>项目背景</h2>
+                    <p>某大型汽车集团拥有多个生产基地，年产汽车超过百万辆。随着智能制造的深入推进，集团决定建设工业互联网平台，实现设备联网、生产可视化和智能化运维，提升生产效率和产品质量。</p>
+                    <p>项目覆盖集团下属5个生产基地，连接生产设备超过10万台，是国内规模最大的汽车行业工业互联网项目之一。</p>
+                </div>
+                <div class="case-meta-card">
+                    <div class="meta-item"><div class="meta-label">客户行业</div><div class="meta-value">汽车制造</div></div>
+                    <div class="meta-item"><div class="meta-label">项目周期</div><div class="meta-value">20个月</div></div>
+                    <div class="meta-item"><div class="meta-label">服务范围</div><div class="meta-value">5个生产基地</div></div>
+                    <div class="meta-item"><div class="meta-label">核心产品</div><div class="meta-value">工业互联网平台</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-metrics-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center;"><h2>项目成效</h2><p style="color: var(--text-secondary); margin-top: 12px;">用数据说话，见证数字化转型价值</p></div>
+            <div class="metrics-grid">
+                <div class="metric-card"><div class="number">10万+</div><div class="label">接入设备</div></div>
+                <div class="metric-card"><div class="number">25%</div><div class="label">产能提升</div></div>
+                <div class="metric-card"><div class="number">40%</div><div class="label">故障降低</div></div>
+                <div class="metric-card"><div class="number">30%</div><div class="label">能耗降低</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-block challenges">
+                    <h3><span class="icon">⚠️</span>业务挑战</h3>
+                    <ul>
+                        <li>生产设备品牌众多、通信协议各异，数据采集困难</li>
+                        <li>生产线复杂，缺乏实时可视化手段，问题发现滞后</li>
+                        <li>设备故障频发，非计划停机影响生产进度</li>
+                        <li>能源消耗大，缺乏精细化管理手段</li>
+                    </ul>
+                </div>
+                <div class="content-block solutions">
+                    <h3><span class="icon">💡</span>解决方案</h3>
+                    <ul>
+                        <li>建设工业互联网平台，实现10万+设备统一接入和数据采集</li>
+                        <li>打造3D数字孪生工厂，实现生产过程全景可视化</li>
+                        <li>部署AI预测性维护系统，提前预警设备故障</li>
+                        <li>构建能源管理系统，优化能源使用效率</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-content-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;"><h2>客户评价</h2></div>
+            <div style="max-width: 800px; margin: 0 auto; background: var(--bg-light); padding: 48px; border-radius: var(--radius-lg);">
+                <div style="font-size: 60px; color: var(--primary-color); opacity: 0.3; line-height: 1;">"</div>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-primary); margin: -20px 0 24px; position: relative; z-index: 1;">工业互联网平台让我们真正实现了"看得见、管得好"。现在坐在监控中心就能掌握所有工厂的生产状态，设备故障能提前预警，大大减少了非计划停机。数字化转型让我们的竞争力上了一个新台阶。</p>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: 600;">王</div>
+                    <div><div style="font-size: 16px; font-weight: 600; color: var(--text-primary);">王总监</div><div style="font-size: 14px; color: var(--text-secondary);">某汽车集团 智能制造总监</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-cases">
+        <div class="container">
+            <div class="section-header" style="text-align: center;"><h2>相关案例</h2></div>
+            <div class="case-nav">
+                <a href="case-education.html" class="nav-case prev"><span class="nav-arrow">←</span><div><div class="nav-label">上一个案例</div><div class="nav-title">某省教育厅教育云平台</div></div></a>
+                <a href="case-government.html" class="nav-case next"><span class="nav-arrow">→</span><div><div class="nav-label">返回首页</div><div class="nav-title">查看全部案例</div></div></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><span class="logo-icon">☁</span><span class="logo-text">某某科技</span></div><p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p></div>
+                <div class="footer-links"><h4>产品服务</h4><ul><li><a href="products.html">云计算</a></li><li><a href="products.html">数据存储</a></li><li><a href="products.html">人工智能</a></li><li><a href="products.html">安全服务</a></li></ul></div>
+                <div class="footer-links"><h4>解决方案</h4><ul><li><a href="solution-government.html">政务云</a></li><li><a href="solution-finance.html">金融云</a></li><li><a href="solution-healthcare.html">医疗云</a></li><li><a href="solution-education.html">教育云</a></li></ul></div>
+                <div class="footer-links"><h4>关于我们</h4><ul><li><a href="about.html">公司介绍</a></li><li><a href="#">新闻动态</a></li><li><a href="#">加入我们</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

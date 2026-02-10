@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例详情：某保险公司智能理赔系统 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+    <style>
+        .case-detail-hero {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        .case-detail-hero .page-tag {
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .case-detail-hero h1 .highlight {
+            background: linear-gradient(135deg, #ffd700, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .case-overview { padding: 80px 0; background: var(--bg-white); }
+        .overview-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: start; }
+        .case-description h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; color: var(--text-primary); }
+        .case-description p { font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 16px; }
+        .case-meta-card { background: var(--bg-light); border-radius: var(--radius-lg); padding: 32px; position: sticky; top: 100px; }
+        .meta-item { padding: 16px 0; border-bottom: 1px solid var(--border-color); }
+        .meta-item:last-child { border-bottom: none; }
+        .meta-label { font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+        .meta-value { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+        .case-metrics-section { padding: 80px 0; background: var(--bg-light); }
+        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .metric-card { background: var(--bg-white); border-radius: var(--radius-md); padding: 32px 24px; text-align: center; box-shadow: var(--shadow-sm); }
+        .metric-card .number { font-size: 48px; font-weight: 700; background: linear-gradient(135deg, #11998e, #38ef7d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .metric-card .label { font-size: 14px; color: var(--text-secondary); }
+        .case-content-section { padding: 80px 0; background: var(--bg-white); }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+        .content-block { background: var(--bg-light); border-radius: var(--radius-lg); padding: 40px; }
+        .content-block h3 { font-size: 20px; font-weight: 600; margin-bottom: 24px; color: var(--text-primary); display: flex; align-items: center; gap: 12px; }
+        .content-block h3 .icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #11998e, #38ef7d); border-radius: 50%; font-size: 20px; }
+        .content-block ul { list-style: none; }
+        .content-block li { padding: 12px 0; padding-left: 28px; position: relative; font-size: 15px; color: var(--text-secondary); border-bottom: 1px dashed var(--border-color); }
+        .content-block li:last-child { border-bottom: none; }
+        .content-block.challenges li::before { content: '!'; position: absolute; left: 0; width: 20px; height: 20px; background: #e94560; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
+        .content-block.solutions li::before { content: '✓'; position: absolute; left: 0; width: 20px; height: 20px; background: #11998e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
+        .related-cases { padding: 80px 0; background: var(--bg-white); }
+        .case-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border-color); }
+        .nav-case { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--bg-light); border-radius: var(--radius-md); text-decoration: none; transition: all 0.3s; max-width: 45%; }
+        .nav-case:hover { background: var(--primary-color); color: white; }
+        .nav-case:hover .nav-label, .nav-case:hover .nav-title { color: white; }
+        .nav-case.prev { flex-direction: row; }
+        .nav-case.next { flex-direction: row-reverse; text-align: right; }
+        .nav-arrow { font-size: 24px; }
+        .nav-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+        .nav-title { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        @media (max-width: 1024px) { .overview-grid { grid-template-columns: 1fr; } .case-meta-card { position: static; } .metrics-grid { grid-template-columns: repeat(2, 1fr); } .content-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .metrics-grid { grid-template-columns: 1fr; } .case-nav { flex-direction: column; gap: 16px; } .nav-case { max-width: 100%; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav"><a href="index.html">首页</a><a href="products.html">产品服务</a><a href="solutions.html">解决方案</a><a href="cases.html" class="active">成功案例</a><a href="about.html">关于我们</a></nav>
+            <div class="header-actions"><button class="btn btn-primary">免费试用</button></div>
+        </div>
+    </header>
+
+    <section class="page-hero case-detail-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">Insurance Case Study</div>
+                <h1>某保险公司<br><span class="highlight">智能理赔系统</span></h1>
+                <p>基于AI技术打造智能理赔平台，理赔效率提升80%，欺诈识别准确率达95%以上</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="case-description">
+                    <h2>项目背景</h2>
+                    <p>某大型保险公司日均处理理赔案件超过万件，传统的理赔模式依赖人工审核，效率低、成本高，且存在一定的欺诈风险。为提升理赔效率、降低运营成本、加强风险管控，公司决定建设智能理赔系统。</p>
+                    <p>项目运用OCR、NLP、机器学习等AI技术，实现理赔材料的自动识别、审核和赔付，大幅缩短理赔周期。</p>
+                </div>
+                <div class="case-meta-card">
+                    <div class="meta-item"><div class="meta-label">客户行业</div><div class="meta-value">财产保险</div></div>
+                    <div class="meta-item"><div class="meta-label">项目周期</div><div class="meta-value">8个月</div></div>
+                    <div class="meta-item"><div class="meta-label">服务范围</div><div class="meta-value">车险、财产险理赔</div></div>
+                    <div class="meta-item"><div class="meta-label">核心产品</div><div class="meta-value">AI平台、智能审核</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-metrics-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center;"><h2>项目成效</h2><p style="color: var(--text-secondary); margin-top: 12px;">用数据说话，见证数字化转型价值</p></div>
+            <div class="metrics-grid">
+                <div class="metric-card"><div class="number">80%</div><div class="label">理赔效率提升</div></div>
+                <div class="metric-card"><div class="number">95%</div><div class="label">欺诈识别准确率</div></div>
+                <div class="metric-card"><div class="number">60%</div><div class="label">人工成本降低</div></div>
+                <div class="metric-card"><div class="number">30秒</div><div class="label">小额理赔时效</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-block challenges">
+                    <h3><span class="icon">⚠️</span>业务挑战</h3>
+                    <ul>
+                        <li>理赔材料种类繁多，人工审核工作量大，效率低下</li>
+                        <li>部分客户存在骗保行为，传统手段难以识别</li>
+                        <li>理赔流程长，客户满意度有待提升</li>
+                        <li>高峰期理赔积压严重，影响客户体验</li>
+                    </ul>
+                </div>
+                <div class="content-block solutions">
+                    <h3><span class="icon">💡</span>解决方案</h3>
+                    <ul>
+                        <li>OCR自动识别理赔材料，信息录入准确率达99%以上</li>
+                        <li>AI模型自动审核理赔案件，小额案件秒级赔付</li>
+                        <li>构建反欺诈模型，自动识别可疑案件，欺诈识别率达95%</li>
+                        <li>智能调度系统，自动分配案件，优化人力资源配置</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-content-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;"><h2>客户评价</h2></div>
+            <div style="max-width: 800px; margin: 0 auto; background: var(--bg-light); padding: 48px; border-radius: var(--radius-lg);">
+                <div style="font-size: 60px; color: var(--primary-color); opacity: 0.3; line-height: 1;">"</div>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-primary); margin: -20px 0 24px; position: relative; z-index: 1;">智能理赔系统的上线彻底改变了我们的理赔业务模式。现在80%的小额案件可以自动审核通过，理赔时效从天级缩短到分钟级，客户满意度大幅提升。同时，反欺诈模型帮助我们挽回了大量损失。</p>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #11998e, #38ef7d); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: 600;">刘</div>
+                    <div><div style="font-size: 16px; font-weight: 600; color: var(--text-primary);">刘总</div><div style="font-size: 14px; color: var(--text-secondary);">某保险公司 理赔部总经理</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-cases">
+        <div class="container">
+            <div class="section-header" style="text-align: center;"><h2>相关案例</h2></div>
+            <div class="case-nav">
+                <a href="case-bank.html" class="nav-case prev"><span class="nav-arrow">←</span><div><div class="nav-label">上一个案例</div><div class="nav-title">某城商行核心系统云化</div></div></a>
+                <a href="case-hospital.html" class="nav-case next"><span class="nav-arrow">→</span><div><div class="nav-label">下一个案例</div><div class="nav-title">某三甲医院智慧医院</div></div></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><span class="logo-icon">☁</span><span class="logo-text">某某科技</span></div><p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p></div>
+                <div class="footer-links"><h4>产品服务</h4><ul><li><a href="products.html">云计算</a></li><li><a href="products.html">数据存储</a></li><li><a href="products.html">人工智能</a></li><li><a href="products.html">安全服务</a></li></ul></div>
+                <div class="footer-links"><h4>解决方案</h4><ul><li><a href="solution-government.html">政务云</a></li><li><a href="solution-finance.html">金融云</a></li><li><a href="solution-healthcare.html">医疗云</a></li><li><a href="solution-education.html">教育云</a></li></ul></div>
+                <div class="footer-links"><h4>关于我们</h4><ul><li><a href="about.html">公司介绍</a></li><li><a href="#">新闻动态</a></li><li><a href="#">加入我们</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

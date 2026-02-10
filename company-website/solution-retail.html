@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新零售解决方案 - 某某科技</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="page-styles.css">
+    <style>
+        .solution-detail-hero {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .solution-detail-hero .page-tag {
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .solution-detail-hero h1 .highlight {
+            background: linear-gradient(135deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .architecture-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        .architecture-diagram {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            box-shadow: var(--shadow-md);
+        }
+        .arch-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .arch-layer {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid #f5576c;
+        }
+        .arch-layer.application { background: #fce4ec; }
+        .arch-layer.platform { background: #f3e5f5; }
+        .arch-layer.data { background: #e8eaf6; }
+        .arch-layer.infrastructure { background: #e0f2f1; }
+        .arch-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            font-size: 28px;
+            box-shadow: var(--shadow-sm);
+        }
+        .arch-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .arch-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .arch-arrow {
+            text-align: center;
+            font-size: 24px;
+            color: #f5576c;
+        }
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .scenario-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        .scenario-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: #f5576c;
+        }
+        .scenario-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border-radius: 50%;
+            font-size: 36px;
+            margin: 0 auto 20px;
+        }
+        .scenario-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .scenario-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .related-cases {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+        .case-highlight {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-top: 48px;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .case-image-box {
+            height: 100%;
+            min-height: 400px;
+        }
+        .case-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .case-info-box {
+            padding: 48px;
+        }
+        .case-info-box h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .case-info-box p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .case-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .case-metric {
+            text-align: center;
+            padding: 16px;
+            background: white;
+            border-radius: var(--radius-md);
+        }
+        .case-metric .value {
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            color: #f5576c;
+        }
+        .case-metric .label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        @media (max-width: 1024px) {
+            .scenario-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .case-highlight {
+                grid-template-columns: 1fr;
+            }
+            .case-image-box {
+                min-height: 250px;
+            }
+        }
+        @media (max-width: 768px) {
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="container">
+            <span class="logo-text">某某科技</span>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">产品服务</a>
+                <a href="solutions.html" class="active">解决方案</a>
+                <a href="cases.html">成功案例</a>
+                <a href="about.html">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-primary">免费试用</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 方案详情头部 -->
+    <section class="page-hero solution-detail-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="page-tag">Retail Solution</div>
+                <h1>新零售<br><span class="highlight">解决方案</span></h1>
+                <p>重构人货场，实现线上线下融合，提升消费者体验和运营效率，驱动零售业务增长。</p>
+                <div style="margin-top: 32px;">
+                    <a href="#consult" class="btn btn-primary btn-large">获取方案</a>
+                    <a href="cases.html" class="btn btn-outline-light btn-large" style="margin-left: 16px;">查看案例</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心价值 -->
+    <section class="product-benefits">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>方案核心价值</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">数据驱动的新零售引擎，赋能业务增长</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔄</div>
+                    <h3>全渠道中台</h3>
+                    <p>统一会员、库存、订单管理，实现线上线下一体化运营</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>智能推荐</h3>
+                    <p>基于AI的个性化推荐，转化率提升30%以上</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏪</div>
+                    <h3>智慧门店</h3>
+                    <p>客流分析、热区识别、智能导购，提升门店运营效率</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📦</div>
+                    <h3>供应链优化</h3>
+                    <p>需求预测、智能补货、库存优化，降低库存成本</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用场景 -->
+    <section class="solutions-list">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>应用场景</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">覆盖零售全场景，打造极致消费体验</p>
+            </div>
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-icon">🛒</div>
+                    <h3>全渠道零售</h3>
+                    <p>线上商城、线下门店、社交电商多渠道融合，统一会员权益</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">📱</div>
+                    <h3>智能营销</h3>
+                    <p>精准用户画像，个性化营销触达，提升营销ROI</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">👤</div>
+                    <h3>会员数字化</h3>
+                    <p>全域会员运营，积分通兑，提升会员粘性和复购率</p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🚚</div>
+                    <h3>智慧物流</h3>
+                    <p>仓配一体化，智能路径规划，提升配送效率</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术架构 -->
+    <section class="architecture-section">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>技术架构</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">高并发、高可用的零售云架构</p>
+            </div>
+            <div class="architecture-diagram">
+                <div class="arch-layers">
+                    <div class="arch-layer application">
+                        <div class="arch-icon">📱</div>
+                        <div class="arch-content">
+                            <h4>业务应用层</h4>
+                            <p>电商平台、小程序商城、门店POS、会员中心、营销系统、客服系统</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-layer platform">
+                        <div class="arch-icon">⚙️</div>
+                        <div class="arch-content">
+                            <h4>业务中台层</h4>
+                            <p>商品中心、交易中心、库存中心、价格中心、营销中心、支付中心</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-layer data">
+                        <div class="arch-icon">💾</div>
+                        <div class="arch-content">
+                            <h4>数据中台层</h4>
+                            <p>用户画像、推荐引擎、实时计算、BI分析、CDP客户数据平台</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow">⬇</div>
+                    <div class="arch-layer infrastructure">
+                        <div class="arch-icon">☁️</div>
+                        <div class="arch-content">
+                            <h4>基础设施层</h4>
+                            <p>零售云平台、CDN加速、安全防护、容器平台、DevOps平台</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户案例 -->
+    <section class="related-cases">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <h2>客户案例</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px;">与众多零售品牌携手，共创数字化新零售</p>
+            </div>
+            <div class="case-highlight">
+                <div class="case-image-box">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" alt="零售品牌全渠道中台">
+                </div>
+                <div class="case-info-box">
+                    <div class="case-category-tag">零售品牌案例</div>
+                    <h3>某连锁零售品牌全渠道中台</h3>
+                    <p>构建全渠道业务中台，打通线上线下会员、库存、订单。实现门店数字化升级，通过智能推荐和精准营销，销售额增长30%，库存周转率提升50%。</p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <span class="value">30%</span>
+                            <span class="label">销售增长</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="value">50%</span>
+                            <span class="label">库存优化</span>
+                        </div>
+                        <div class="case-metric">
+                            <span class="value">2x</span>
+                            <span class="label">会员增长</span>
+                        </div>
+                    </div>
+                    <a href="cases.html" class="btn btn-primary">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 咨询CTA -->
+    <section class="solution-cta" id="consult">
+        <div class="container">
+            <div class="cta-box">
+                <h2>获取零售专属解决方案</h2>
+                <p>我们的零售行业专家将为您提供专业的新零售转型咨询服务</p>
+                <div class="cta-form">
+                    <input type="text" placeholder="您的姓名" class="form-input">
+                    <input type="text" placeholder="品牌/企业名称" class="form-input">
+                    <input type="tel" placeholder="联系电话" class="form-input">
+                    <select class="form-select">
+                        <option>选择业态类型</option>
+                        <option>百货商超</option>
+                        <option>服装鞋帽</option>
+                        <option>美妆个护</option>
+                        <option>食品饮料</option>
+                        <option>家居家电</option>
+                        <option>其他</option>
+                    </select>
+                    <button class="btn btn-primary btn-large">获取方案</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">☁</span>
+                        <span class="logo-text">某某科技</span>
+                    </div>
+                    <p>专注于企业数字化转型，提供云计算、大数据、人工智能等全方位技术服务。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="products.html">云计算</a></li>
+                        <li><a href="products.html">数据存储</a></li>
+                        <li><a href="products.html">人工智能</a></li>
+                        <li><a href="products.html">安全服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="solution-government.html">政务云</a></li>
+                        <li><a href="solution-finance.html">金融云</a></li>
+                        <li><a href="solution-healthcare.html">医疗云</a></li>
+                        <li><a href="solution-education.html">教育云</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>支持与资源</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">开发文档</a></li>
+                        <li><a href="#">API参考</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">公司介绍</a></li>
+                        <li><a href="#">新闻动态</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 某某科技 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
